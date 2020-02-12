@@ -32,5 +32,10 @@ with ReaderThread(ser, PrintLines) as protocol:
         print(f"Attempting to disable channel: {channel}")
         protocol.write_line(f"mac set ch status {channel} off")
         time.sleep(delay)
+
+    print("Saving changes to the MAC!")
+    protocol.write_line(f"mac save")
+    time.sleep(delay)
+
     print("Done! (I hope)")
     exit(1)
