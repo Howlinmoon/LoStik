@@ -28,7 +28,7 @@ delay = args.delay
 with ReaderThread(ser, PrintLines) as protocol:
     protocol.write_line("sys get ver")
     time.sleep(.5)
-    for channel in range(0, 73):
+    for channel in range(0, 72):
         print(f"Attempting to disable channel: {channel}")
         protocol.write_line(f"mac set ch status {channel} off")
         time.sleep(delay)
