@@ -25,7 +25,6 @@ class PrintLines(LineReader):
 
 ser = serial.Serial(args.port, baudrate=57600)
 delay = args.delay
-mode = args.mode
 with ReaderThread(ser, PrintLines) as protocol:
     protocol.write_line("sys get ver")
     time.sleep(.5)
@@ -35,4 +34,3 @@ with ReaderThread(ser, PrintLines) as protocol:
         time.sleep(delay)
     print("Done! (I hope)")
     exit(1)
-    
